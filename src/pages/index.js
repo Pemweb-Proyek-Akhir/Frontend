@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
-
-const inter = Inter({ subsets: ["latin"] });
+import About from "@/containers/home/about";
 
 export default function Home() {
   return (
     <div>
       <Navbar />
-      <div className="relative">
+
+      {/* JUMBOTRON */}
+      <div className="jumbotron">
         <div className="j2">
           <div className="w-[35%] pl-12 h-full flex justify-center flex-col">
-            <div className="font-bold text-white text-5xl mb-6">
+            <div className="font-bold text-slate-50 text-5xl mb-6">
               Dari Nasi Uduk sampai Mie Gludug
             </div>
             <div className="font-medium text-white text-2xl mb-5">
@@ -21,9 +21,10 @@ export default function Home() {
             <img src="/logo/logo-white.svg" width={"248px"} />
           </div>
         </div>
-        <div className="j1 absolute"></div>
-        <img className="absolute banner" src="/images/jumbotron.jpg" />
+        <div className={"j1"}></div>
+        <img className={"banner"} src="/images/jumbotron.jpg" />
       </div>
+      <About />
     </div>
   );
 }

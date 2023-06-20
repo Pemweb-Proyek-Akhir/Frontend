@@ -7,7 +7,7 @@ export default function Document() {
         <title>Aseupan Kitchen</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <body>
+      <body className="overflow-x-hidden">
         <Main />
         <NextScript />
       </body>

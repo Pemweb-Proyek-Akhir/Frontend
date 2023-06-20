@@ -1,0 +1,27 @@
+.jumbotron .j2 {
+  background: linear-gradient(135deg, #449eee 0%, #8fc5f5 100%);
+  width: 100vw;
+  height: 95vh;
+  position: absolute;
+}
+
+.jumbotron .j1 {
+  background-color: #449eee;
+  width: 100vw;
+  height: 95vh;
+  clip-path: circle(69.6% at 100% 32%);
+  position: absolute;
+}
+
+.jumbotron .banner {
+  clip-path: circle(63.6% at 100% 38%);
+  width: 100vw;
+  height: 95vh;
+  object-fit: cover;
+  position: absolute;
+}
+
+.jumbotron {
+  position: relative;
+  height: 95vh;
+}
