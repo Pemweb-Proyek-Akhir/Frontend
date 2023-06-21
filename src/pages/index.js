@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import About from "@/containers/home/about";
+import Product from "@/containers/home/product";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <img className={"banner"} src="/images/jumbotron.jpg" />
       </div>
       <About />
+      <Product />
     </div>
   );
 }
