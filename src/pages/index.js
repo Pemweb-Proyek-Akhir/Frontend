@@ -22,7 +22,7 @@ export default function Home() {
               Pesennya sat set tinggal duduk Makan puas ampe perut hampir
               meledug
             </div>
-            <img src="/logo/logo-w.svg" width={"248px"} />
+            <img src="/logo/logo-white.svg" width={"248px"} />
           </div>
         </div>
         <div className={"j1"}></div>
