@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="about flex px-36 h-[95vh] items-center justify-center">
+    <div className="about flex px-36 h-[95vh] items-center justify-center mb-10">
       <div className="relative mr-52 shrink-0">
         <img
           src="/images/about1.svg"

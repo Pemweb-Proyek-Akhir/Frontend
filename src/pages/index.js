@@ -2,6 +2,9 @@ import Image from "next/image";
 import Navbar from "@/components/navbar";
 import About from "@/containers/home/about";
 import Product from "@/containers/home/product";
+import Manual from "@/containers/home/manual";
+import Team from "@/containers/home/team";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -19,7 +22,7 @@ export default function Home() {
               Pesennya sat set tinggal duduk Makan puas ampe perut hampir
               meledug
             </div>
-            <img src="/logo/logo-white.svg" width={"248px"} />
+            <img src="/logo/logo-w.svg" width={"248px"} />
           </div>
         </div>
         <div className={"j1"}></div>
@@ -27,6 +30,10 @@ export default function Home() {
       </div>
       <About />
       <Product />
+      <Manual />
+      <Team />
+
+      <Footer />
     </div>
   );
 }
