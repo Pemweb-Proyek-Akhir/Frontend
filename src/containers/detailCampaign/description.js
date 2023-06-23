@@ -1,4 +1,13 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 export default function Description() {
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log(router.asPath);
+  }, []);
+
   return (
     <div className="flex gap-x-20">
       <div className="basis-[50%]">
@@ -34,37 +43,41 @@ export default function Description() {
       <div className="basis-[50%]">
         <div className="font-bold text-xl mb-10">Choose your package</div>
         <div className="flex flex-col gap-6">
-          <div className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between">
-            <div className="text-slate-600 font-medium text-xl">
+          <div
+            onClick={() => router.push(`${router.asPath}/1`)}
+            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+          >
+            <div className="font-medium text-xl">
               Paket 1 : Nasi, Telur, Tempe, Sayur
             </div>
-            <div className="text-slate-700 font-semibold text-xl">
-              Rp10.000,00
-            </div>
+            <div className="font-semibold text-xl">Rp10.000,00</div>
           </div>
-          <div className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between">
-            <div className="text-slate-600 font-medium text-xl">
-              Paket 1 : Nasi, Telur, Tempe, Sayur
+          <div
+            onClick={() => router.push(`${router.asPath}/2`)}
+            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+          >
+            <div className="font-medium text-xl">
+              Paket 2 : Nasi, Telur, Tempe, Sayur
             </div>
-            <div className="text-slate-700 font-semibold text-xl">
-              Rp10.000,00
-            </div>
+            <div className="font-semibold text-xl">Rp10.000,00</div>
           </div>
-          <div className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between">
-            <div className="text-slate-600 font-medium text-xl">
-              Paket 1 : Nasi, Telur, Tempe, Sayur
+          <div
+            onClick={() => router.push(`${router.asPath}/3`)}
+            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+          >
+            <div className=" font-medium text-xl">
+              Paket 3 : Nasi, Telur, Tempe, Sayur
             </div>
-            <div className="text-slate-700 font-semibold text-xl">
-              Rp10.000,00
-            </div>
+            <div className="font-semibold text-xl">Rp10.000,00</div>
           </div>
-          <div className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between">
-            <div className="text-slate-600 font-medium text-xl">
-              Paket 1 : Nasi, Telur, Tempe, Sayur
+          <div
+            onClick={() => router.push(`${router.asPath}/4`)}
+            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+          >
+            <div className=" font-medium text-xl">
+              Paket 4 : Nasi, Telur, Tempe, Sayur
             </div>
-            <div className="text-slate-700 font-semibold text-xl">
-              Rp10.000,00
-            </div>
+            <div className="font-semibold text-xl">Rp10.000,00</div>
           </div>
         </div>
       </div>
