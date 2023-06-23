@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const router = useRouter();
   const onSubmit = (e) => {
     e.preventDefault();
+    router.push("/u");
   };
 
   return (
