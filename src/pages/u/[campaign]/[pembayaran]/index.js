@@ -1,12 +1,25 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import { useState } from "react";
+import useClickOutside from "@/hooks/useClickOutside";
+import { COOKIE_NAME_PRERENDER_BYPASS } from "next/dist/server/api-utils";
+import { useEffect, useRef, useState } from "react";
+import ReactModal from "react-modal";
 
 export default function Pembayaran() {
   const [pembayaran, setPembayaran] = useState(0);
+  const [open, setOpen] = useState(false);
+  const refModal = useRef(null);
 
   const handleOptionChange = (e) => {
     setPembayaran(e.target.value);
+  };
+
+  useEffect(() => {
+    console.log(open);
+  }, [open]);
+
+  const handleCheckout = () => {
+    setOpen(true);
   };
 
   return (
@@ -78,6 +91,7 @@ export default function Pembayaran() {
               <button
                 className="px-5 py-3 bg-secondary rounded-lg text-white shadow-md disabled:bg-slate-300"
                 disabled={pembayaran == 0}
+                onClick={handleCheckout}
               >
                 CHECKOUT
               </button>
@@ -85,6 +99,27 @@ export default function Pembayaran() {
           </div>
         </div>
       </div>
+      <ReactModal
+        className={
+          "bg-white w-fit rounded-xl py-24 px-20 mx-auto mt-10 shadow-xl text-center"
+        }
+        style={{ overlay: { zIndex: 1000 } }}
+        isOpen={open}
+      >
+        <div ref={refModal}>
+          <img
+            src="/icons/success.svg"
+            width={282}
+            height={282}
+            className="mb-16"
+          />
+          <div className="text-secondary font-bold text-2xl">
+            DONATE
+            <br />
+            SUCCESS!
+          </div>
+        </div>
+      </ReactModal>
       <Footer />
     </div>
   );
