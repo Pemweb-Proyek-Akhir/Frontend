@@ -20,6 +20,8 @@ export default function DetailCampaign() {
     [router.query.campaign]
   );
 
+  // update
+
   useEffect(() => {
     if (data == null || data == undefined) {
       router.replace("/u");
