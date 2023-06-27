@@ -1,8 +1,23 @@
+import { ReducerContext } from "@/hooks/pageContext";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 export default function Description() {
   const router = useRouter();
+  useEffect(() => {
+    if (router.query.campaign == undefined) {
+      router.replace("/u");
+    }
+  }, []);
+  const { campaign } = useContext(ReducerContext);
+
+  const data = campaign.find((e) => e.id == router.query.campaign);
+
+  useEffect(() => {
+    if (data == null || data == undefined) {
+      router.replace("/u");
+    }
+  }, [data]);
 
   useEffect(() => {
     console.log(router.asPath);
