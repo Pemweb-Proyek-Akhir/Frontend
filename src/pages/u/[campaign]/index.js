@@ -4,7 +4,7 @@ import Description from "@/containers/detailCampaign/description";
 import { ReducerContext } from "@/hooks/pageContext";
 import getLink from "@/utils/getLink";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function DetailCampaign() {
@@ -15,10 +15,17 @@ export default function DetailCampaign() {
     }
   }, []);
   const { campaign } = useContext(ReducerContext);
-  const data = useMemo(
-    () => campaign.find((e) => e.id == router.query.campaign),
-    [router.query.campaign]
-  );
+  // const data = useMemo(
+  //   () => campaign.find((e) => e.id == router.query.campaign),
+  //   [router.query.campaign]
+  // );
+
+  const [data, setData] = useState({ thumbnail: [] });
+
+  useEffect(() => {
+    const temp = campaign.find((e) => e.id == router.query.campaign);
+    setData(temp);
+  }, [router.query.campaign]);
 
   // update
 
