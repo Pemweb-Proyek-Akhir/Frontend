@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Team() {
   return (
-    <div className="px-24 mb-20">
+    <div id="team" className="px-24 mb-20">
       <div className="text-5xl text-center font-bold text-slate-900 mb-20">
         Our Team
       </div>

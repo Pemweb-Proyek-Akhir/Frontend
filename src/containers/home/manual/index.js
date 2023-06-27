@@ -1,6 +1,6 @@
 export default function Manual() {
   return (
-    <div className="px-24 mb-24">
+    <div id="manual" className="px-24 mb-24">
       <div className="text-5xl text-center font-bold text-slate-900 mb-20">
         How to Use?
       </div>

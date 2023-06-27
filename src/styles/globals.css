@@ -9,6 +9,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
+  scroll-behavior: smooth !important;
+}
+
+div {
+  scroll-behavior: smooth;
 }
 
 ul,

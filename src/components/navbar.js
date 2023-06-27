@@ -45,14 +45,24 @@ export default function Navbar() {
           <Link href={"/"}>
             <img src="/logo/logo-blue.svg" />
           </Link>
-          <div className="hover:text-primary">Company</div>
-          <div>Marketplace</div>
-          <div>Features</div>
-          <div>Team</div>
-          <div>Contact</div>
+          <Link href={"#about"}>
+            <div>About</div>
+          </Link>
+          <Link href={"#product"}>
+            <div>Product</div>
+          </Link>
+          <Link href="#manual">
+            <div>Manual</div>
+          </Link>
+          <Link href="#team">
+            <div>Team</div>
+          </Link>
+          <Link href="#contact">
+            <div>Contact</div>
+          </Link>
         </div>
         <div className="flex space-x-6 items-center">
-          {!user ? (
+          {!user.name ? (
             <button
               className="px-4 py-2 rounded-md shadow-md"
               onClick={() => route.push("/login")}
@@ -69,20 +79,18 @@ export default function Navbar() {
               <div>{user.name}</div>
               <img
                 alt="profile picutre"
-                width={30}
-                height={30}
                 src={getLink(user.profile_picture)}
-                className="rounded-full shadow object-fill"
+                className="rounded-full shadow object-fill w-[30px] h-[30px]"
               />
             </div>
           )}
           <button
             className={`${
-              user ? "bg-red-600" : "bg-primary"
+              !!user.name ? "bg-red-600" : "bg-primary"
             } text-white font-medium px-5 py-2 rounded-md  block`}
-            onClick={user ? logout : () => route.push("/register")}
+            onClick={!!user.name ? logout : () => route.push("/register")}
           >
-            {user ? "Logout" : "Register"}
+            {!!user.name ? "Logout" : "Register"}
           </button>
         </div>
       </div>

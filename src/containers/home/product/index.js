@@ -1,6 +1,6 @@
 export default function Product() {
   return (
-    <div className="mb-32">
+    <div id="product" className="mb-32">
       <div className="">
         <div className="text-5xl text-center font-bold mb-16">Our Product</div>
         <div className="flex px-10 space-x-12 items-center mb-20">
