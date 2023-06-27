@@ -4,6 +4,7 @@ import update from "immutability-helper";
 import axios from "axios";
 import { getUserToken, setUserToken } from "@/utils/storageUtil";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function Register() {
   const router = useRouter();
@@ -15,9 +16,9 @@ export default function Register() {
   });
 
   useEffect(() => {
-    if (!!getUserToken()) {
-      router.replace("/u");
-    }
+    // if (!!getUserToken()) {
+    //   router.replace("/u");
+    // }
   }, []);
 
   const onSubmit = (e) => {
@@ -43,6 +44,9 @@ export default function Register() {
 
   return (
     <div className="w-screen h-screen overflow-hidden">
+      <Head>
+        <title>Register</title>
+      </Head>
       <div className="auth-bg">
         <form onSubmit={onSubmit}>
           <img src="/logo/logo-white.svg" width={250} className="mb-8" />

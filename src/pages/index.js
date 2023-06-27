@@ -5,10 +5,17 @@ import Product from "@/containers/home/product";
 import Manual from "@/containers/home/manual";
 import Team from "@/containers/home/team";
 import Footer from "@/components/footer";
+import Head from "next/head";
+import { getUserToken } from "@/utils/storageUtil";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const route = useRouter();
   return (
     <div>
+      <Head>
+        <title>Kitchen</title>
+      </Head>
       <Navbar />
 
       {/* JUMBOTRON */}
@@ -22,7 +29,15 @@ export default function Home() {
               Pesennya sat set tinggal duduk Makan puas ampe perut hampir
               meledug
             </div>
-            <img src="/logo/logo-white.svg" width={"248px"} />
+            <img src="/logo/logo-white.svg" width={"248px"} className="mb-2" />
+            <button
+              className=" w-fit px-6 py-2 bg-primary text-white shadow-sm rounded-lg mt-3 shadow-white"
+              onClick={() => {
+                !!getUserToken() ? route.push("/u") : route.push("/register");
+              }}
+            >
+              GET Started
+            </button>
           </div>
         </div>
         <div className={"j1"}></div>

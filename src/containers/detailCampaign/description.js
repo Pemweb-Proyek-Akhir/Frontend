@@ -55,7 +55,7 @@ export default function Description() {
               <div
                 className="bg-primary h-2.5 rounded-full"
                 style={{
-                  width: data.current / data.target,
+                  width: `${(data.current / data.target) * 100}%`,
                 }}
               ></div>
             </div>

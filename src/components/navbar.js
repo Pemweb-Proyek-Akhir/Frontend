@@ -3,6 +3,7 @@ import getLink from "@/utils/getLink";
 import { deleteUserToken, getUserToken } from "@/utils/storageUtil";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 
@@ -33,14 +34,17 @@ export default function Navbar() {
 
   const logout = () => {
     deleteUserToken();
-    route.reload("/");
+    route.replace("/");
+    route.reload();
   };
 
   return (
     <>
       <div className="p-5 shadow-lg bg-white flex justify-between items-center fixed top-0 z-10 w-screen">
         <div className="[&>div:hover]:text-primary [&>div:hover]:cursor-pointer flex space-x-7 text-base font-medium items-center">
-          <img src="/logo/logo-blue.svg" />
+          <Link href={"/"}>
+            <img src="/logo/logo-blue.svg" />
+          </Link>
           <div className="hover:text-primary">Company</div>
           <div>Marketplace</div>
           <div>Features</div>
@@ -56,14 +60,19 @@ export default function Navbar() {
               Login
             </button>
           ) : (
-            <div className="flex items-center gap-2">
+            <div
+              className="flex cursor-pointer items-center gap-2"
+              onClick={() => {
+                route.push("/profile");
+              }}
+            >
               <div>{user.name}</div>
               <img
                 alt="profile picutre"
                 width={30}
                 height={30}
                 src={getLink(user.profile_picture)}
-                className="rounded-full shadow"
+                className="rounded-full shadow object-fill"
               />
             </div>
           )}
@@ -71,7 +80,7 @@ export default function Navbar() {
             className={`${
               user ? "bg-red-600" : "bg-primary"
             } text-white font-medium px-5 py-2 rounded-md  block`}
-            onClick={logout}
+            onClick={user ? logout : () => route.push("/register")}
           >
             {user ? "Logout" : "Register"}
           </button>

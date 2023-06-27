@@ -5,7 +5,10 @@ export const ReducerContext = createContext(null);
 
 export default function PageContext({ children }) {
   const [token, tokenDispatch] = useReducer(tokenReducer, tokenReducer.INIT);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    profile_picture:
+      "https://api-ruang-bersama.mfadlihs.com/public/images/default-pp.jpg",
+  });
   const [campaign, setCampaign] = useState([]);
 
   const reducer = {
