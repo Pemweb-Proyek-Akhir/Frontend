@@ -1,6 +1,6 @@
 import { ReducerContext } from "@/hooks/pageContext";
 import getLink from "@/utils/getLink";
-import { getUserToken } from "@/utils/storageUtil";
+import { deleteUserToken, getUserToken } from "@/utils/storageUtil";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -30,6 +30,11 @@ export default function Navbar() {
       console.log(user);
     }
   }, []);
+
+  const logout = () => {
+    deleteUserToken();
+    route.reload("/");
+  };
 
   return (
     <>
@@ -66,6 +71,7 @@ export default function Navbar() {
             className={`${
               user ? "bg-red-600" : "bg-primary"
             } text-white font-medium px-5 py-2 rounded-md  block`}
+            onClick={logout}
           >
             {user ? "Logout" : "Register"}
           </button>
