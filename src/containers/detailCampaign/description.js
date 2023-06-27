@@ -27,7 +27,8 @@ export default function Description() {
     <div className="flex gap-x-20">
       <div className="basis-[50%]">
         <div className="mb-10">
-          <div className="text-xl flex">
+          <div className="text-2xl font-bold mb-3">{data.name}</div>
+          <div className="text-xl flex justify-between px-6 bg-white shadow-md py-3 rounded-xl mb-4">
             <span className="w-[220px] inline-block">
               {"Potential Earn Chips"}
             </span>
@@ -36,9 +37,23 @@ export default function Description() {
               100
             </span>
           </div>
-          <div className="text-xl">
-            <span className="w-[220px] inline-block">{"Donation Target:"}</span>
-            <span className="text-slate-600">100 boxes</span>
+          <div className="bg-white px-6 py-5 rounded-xl shadow-lg">
+            <div className="w-full bg-gray-200 rounded-full mb-4 h-2.5 dark:bg-gray-700">
+              <div
+                className="bg-primary h-2.5 rounded-full"
+                style={{
+                  width: data.current / data.target,
+                }}
+              ></div>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-medium text-xl text-slate-800">
+                Donation Target:{" "}
+              </div>
+              <div className="text-slate-600">
+                {data.current} boxes of {data.target} boxes
+              </div>
+            </div>
           </div>
         </div>
         <div className="text-slate-800 text-xl font-bold mb-2">Description</div>
@@ -60,7 +75,7 @@ export default function Description() {
         <div className="flex flex-col gap-6">
           <div
             onClick={() => router.push(`${router.asPath}/1`)}
-            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+            className="bg-white rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
           >
             <div className="font-medium text-xl">
               Paket 1 : Nasi, Telur, Tempe, Sayur
@@ -69,7 +84,7 @@ export default function Description() {
           </div>
           <div
             onClick={() => router.push(`${router.asPath}/2`)}
-            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+            className="bg-white rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
           >
             <div className="font-medium text-xl">
               Paket 2 : Nasi, Telur, Tempe, Sayur
@@ -78,7 +93,7 @@ export default function Description() {
           </div>
           <div
             onClick={() => router.push(`${router.asPath}/3`)}
-            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+            className="bg-white rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
           >
             <div className=" font-medium text-xl">
               Paket 3 : Nasi, Telur, Tempe, Sayur
@@ -87,7 +102,7 @@ export default function Description() {
           </div>
           <div
             onClick={() => router.push(`${router.asPath}/4`)}
-            className="bg-slate-100 rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+            className="bg-white rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
           >
             <div className=" font-medium text-xl">
               Paket 4 : Nasi, Telur, Tempe, Sayur

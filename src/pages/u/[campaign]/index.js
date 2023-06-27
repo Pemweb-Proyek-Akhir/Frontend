@@ -27,7 +27,7 @@ export default function DetailCampaign() {
   }, [data]);
 
   return (
-    <div>
+    <div className="bg-slate-50">
       <Navbar />
       <div className="pl-28">
         <div className="mt-16 text-xl font-light mb-20">
