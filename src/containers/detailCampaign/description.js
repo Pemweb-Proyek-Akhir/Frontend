@@ -1,6 +1,8 @@
 import { ReducerContext } from "@/hooks/pageContext";
+import { getUserToken } from "@/utils/storageUtil";
+import axios from "axios";
 import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Description() {
   const router = useRouter();
@@ -10,8 +12,18 @@ export default function Description() {
     }
   }, []);
   const { campaign } = useContext(ReducerContext);
+  const [paket, setPaket] = useState([]);
 
   const data = campaign.find((e) => e.id == router.query.campaign);
+
+  const getPackage = async () => {
+    try {
+      const request = await axios.get("http://localhost:8000/api/package", {
+        headers: { Authorization: `Bearer ${getUserToken()}` },
+      });
+      setPaket(request.data.data);
+    } catch (err) {}
+  };
 
   useEffect(() => {
     if (data == null || data == undefined) {
@@ -20,6 +32,7 @@ export default function Description() {
   }, [data]);
 
   useEffect(() => {
+    getPackage();
     console.log(router.asPath);
   }, []);
 
@@ -73,7 +86,18 @@ export default function Description() {
       <div className="basis-[50%]">
         <div className="font-bold text-xl mb-10">Choose your package</div>
         <div className="flex flex-col gap-6">
-          <div
+          {paket.map((e) => {
+            return (
+              <div
+                onClick={() => router.push(`${router.asPath}/${e.id}`)}
+                className="bg-white rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
+              >
+                <div className="font-medium text-xl">{e.name}</div>
+                <div className="font-semibold text-xl">Rp{e.price}</div>
+              </div>
+            );
+          })}
+          {/* <div
             onClick={() => router.push(`${router.asPath}/1`)}
             className="bg-white rounded-xl shadow-md px-8 py-6 flex justify-between hover:bg-secondary text-slate-600 hover:text-white hover:cursor-pointer"
           >
@@ -108,7 +132,7 @@ export default function Description() {
               Paket 4 : Nasi, Telur, Tempe, Sayur
             </div>
             <div className="font-semibold text-xl">Rp10.000,00</div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
